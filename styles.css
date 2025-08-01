@@ -1,3 +1,27 @@
+/* Variáveis de Cores e Estilos Globais */
+:root {
+    /* Cores Primárias e de Destaque (convertidas para RGB) */
+    --cor-primaria: rgb(0, 128, 0); /* Verde principal */
+    --cor-primaria-clara: rgb(191, 230, 191);
+    --cor-destaque: rgb(0, 128, 0); /* Amarelo para CTAs */
+    --cor-destaque-hover: rgb(2, 99, 2);
+    --cor-destaque-alt: rgb(255, 213, 0); /* Amarelo para subtítulos e foco */
+
+    /* Cores de Texto */
+    --texto-primario: rgb(46, 54, 61);
+    --texto-secundario: rgb(109, 119, 130);
+    --texto-sobre-escuro: rgb(250, 250, 250);
+    --texto-sobre-destaque: rgb(46, 54, 61); /* Texto escuro para contraste em botões amarelos */
+
+    /* Cores de Fundo e Bordas */
+    --fundo-claro: rgb(250, 250, 250);
+    --fundo-branco: rgb(255, 255, 255);
+    --borda-sutil: rgb(240, 244, 248);
+
+    /* Medidas */
+    --raio-borda: 0.5rem;
+}
+
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -8,8 +32,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: hsl(210, 15%, 20%); /* Cor do texto principal */
-    background-color: hsl(0, 0%, 98%); /* Fundo claro */
+    color: var(--texto-primario);
+    background-color: var(--fundo-claro);
 }
 
 .container {
@@ -20,8 +44,8 @@ body {
 
 /* Header Styles */
 .header {
-    background: hsl(220, 100%, 35%); /* Mantido azul sólido para o cabeçalho principal */
-    color: hsl(0, 0%, 98%); /* Texto branco */
+    background: var(--fundo-branco);
+    color: var(--texto-sobre-escuro);
     padding: 1rem 0;
     position: relative;
     overflow: hidden;
@@ -41,7 +65,7 @@ body {
     background-image: url('assets/images/Pimenta-Bueno-Ro.jpg');
     background-size: cover;
     background-position: center;
-    filter: brightness(0.5) grayscale(0.2); /* Imagem de fundo escurecida */
+    filter: brightness(0.5) grayscale(0.2);
     z-index: 0;
 }
 
@@ -73,10 +97,10 @@ body {
 }
 
 .header-icon {
-    background: hsla(0, 0%, 98%, 0.8); /* Fundo do ícone do cabeçalho */
-    color: hsl(40, 100%, 50%); /* Cor do ícone do cabeçalho (Amarelo) */
+    background: rgba(250, 250, 250, 0.8);
+    color: var(--cor-destaque-alt);
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--raio-borda);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,7 +130,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     margin-top: 0.25rem;
-    color: hsl(50, 100%, 50%); /* Subtítulo amarelo */
+    color: var(--cor-destaque-alt);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -117,13 +141,13 @@ body {
     align-items: center;
     gap: 1rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; /* Adicionado para dar espaço entre CTA e botão PDF */
 }
 
 .cta-text {
     font-size: 1rem;
     font-weight: 500;
-    color: hsl(0, 0%, 98%);
+    color: var(--texto-sobre-escuro);
     text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
@@ -135,10 +159,10 @@ body {
 }
 
 .cta-button {
-    background: hsl(40, 100%, 50%); /* Fundo dos botões CTA (Amarelo) */
-    color: hsl(210, 15%, 20%); /* Texto escuro para contrastar no botão */
+    background: var(--cor-destaque);
+    color: var(--texto-sobre-destaque); /* Cor alterada para melhor contraste */
     padding: 0.75rem 1.25rem;
-    border-radius: 0.5rem;
+    border-radius: var(--raio-borda);
     text-decoration: none;
     font-weight: bold;
     display: flex;
@@ -151,7 +175,7 @@ body {
 }
 
 .cta-button:hover {
-    background: hsl(40, 90%, 60%); /* Tom mais claro no hover (Amarelo) */
+    background: var(--cor-destaque-hover);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
@@ -161,24 +185,6 @@ body {
     height: 1.25rem;
     display: block;
     flex-shrink: 0;
-}
-
-/* Estilo para o botão de download do PDF (agora no cabeçalho) */
-#download-pdf-button.cta-button {
-    background: hsl(50, 100%, 50%); /* Cor amarela para o botão de download */
-    color: hsl(210, 15%, 20%); /* Texto escuro para contrastar */
-    margin-top: 1.5rem;
-}
-
-#download-pdf-button.cta-button:hover {
-    background: hsl(50, 90%, 60%); /* Tom mais claro no hover */
-}
-
-#download-pdf-button.cta-button:disabled {
-    background: hsl(0, 0%, 70%);
-    cursor: not-allowed;
-    box-shadow: none;
-    transform: none;
 }
 
 
@@ -204,7 +210,7 @@ body {
     width: 1rem;
     height: 1rem;
     flex-shrink: 0;
-    color: hsl(0, 0%, 98%); /* Ícones de contato no cabeçalho (brancos) */
+    color: var(--texto-sobre-escuro);
 }
 
 /* Links de Mapa */
@@ -225,7 +231,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: hsl(0, 0%, 98%); /* Texto dos links WhatsApp no cabeçalho (branco) */
+    color: var(--texto-sobre-escuro);
     text-decoration: underline;
 }
 
@@ -270,21 +276,21 @@ body {
 
 /* Department Card Styles */
 .department-card {
-    background: hsl(0, 0%, 100%);
+    background: var(--fundo-branco);
     border-radius: 0.75rem;
-    box-shadow: 0 8px 25px -5px hsla(40, 100%, 25%, 0.15); /* Sombra amarela */
-    border-left: 4px solid hsl(40, 100%, 50%); /* Borda esquerda amarela */
+    box-shadow: 0 8px 25px -5px rgba(0, 128, 0, 0.15);
+    border-left: 4px solid var(--cor-primaria);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
 }
 
 .department-card:hover {
-    box-shadow: 0 20px 40px -10px hsla(40, 100%, 25%, 0.2); /* Sombra amarela no hover */
+    box-shadow: 0 20px 40px -10px hsl(120, 100%, 25%, 0.2);
     transform: scale(1.01);
 }
 
 .card-header {
-    background: linear-gradient(135deg, hsl(40, 50%, 85%) 0%, transparent 100%); /* Gradiente de amarelo claro */
+    background: linear-gradient(135deg, var(--cor-primaria-clara) 0%, transparent 100%);
     padding: 1.5rem;
 }
 
@@ -295,10 +301,10 @@ body {
 }
 
 .card-icon {
-    background: hsl(40, 100%, 50%); /* Fundo do ícone do card (Amarelo) */
-    color: hsl(0, 0%, 98%); /* Cor do ícone do card (Branco) */
+    background: var(--cor-primaria);
+    color: var(--texto-sobre-escuro);
     padding: 0.75rem;
-    border-radius: 0.5rem;
+    border-radius: var(--raio-borda);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -309,7 +315,7 @@ body {
 .card-icon svg {
     width: 1.5rem;
     height: 1.5rem;
-    color: hsl(0, 0%, 98%); /* Cor do ícone (Branco) */
+    color: var(--texto-sobre-escuro);
 }
 
 
@@ -320,7 +326,7 @@ body {
 .card-title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: hsl(40, 100%, 25%); /* Título do card (Amarelo escuro) */
+    color: var(--cor-primaria);
     margin-bottom: 0.5rem;
 }
 
@@ -329,7 +335,7 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: hsl(210, 15%, 20%);
+    color: var(--texto-primario);
     font-weight: 500;
     font-size: 1.25rem;
 }
@@ -337,7 +343,7 @@ body {
 .card-director i {
     width: 1rem;
     height: 1rem;
-    color: hsl(215, 16%, 47%); /* Cor do ícone do diretor */
+    color: var(--texto-secundario);
 }
 
 .card-content {
@@ -362,13 +368,13 @@ body {
 }
 
 .contact-detail span {
-    color: hsl(215, 16%, 47%); /* Cor do texto de detalhes de contato */
+    color: var(--texto-secundario);
     word-break: break-all;
 }
 
 /* WhatsApp links in Contact Info (main content) */
 .contact-detail .whatsapp-link {
-    color: hsl(215, 16%, 47%);
+    color: var(--texto-secundario);
     text-decoration: underline;
     display: inline-flex;
     align-items: center;
@@ -378,12 +384,11 @@ body {
 .contact-detail .whatsapp-svg-icon {
     width: 1rem;
     height: 1rem;
-    /* Ícone do WhatsApp é colorido por si só */
 }
 
 /* Map links in Contact Info (main content) */
 .contact-detail .map-link {
-    color: hsl(215, 16%, 47%);
+    color: var(--texto-secundario);
     text-decoration: underline;
     display: inline-flex;
     align-items: center;
@@ -391,12 +396,12 @@ body {
 }
 
 .contact-detail .map-link span {
-    color: hsl(215, 16%, 47%);
+    color: var(--texto-secundario);
 }
 
 /* Email links in Contact Info (main content) */
 .contact-detail .mail-link {
-    color: hsl(215, 16%, 47%);
+    color: var(--texto-secundario);
     text-decoration: underline;
     display: inline-flex;
     align-items: center;
@@ -406,17 +411,17 @@ body {
 .contact-detail .contact-svg-icon {
     width: 1rem;
     height: 1rem;
-    color: hsl(40, 100%, 50%); /* Cor dos ícones SVG de contato (Amarelo) */
+    color: var(--cor-primaria);
     flex-shrink: 0;
     margin-top: 0;
-    fill: currentColor; /* Tenta preencher o SVG com a cor definida */
+    fill: currentColor;
 }
 
 
 /* Competencies */
 .competencies h4 {
     font-weight: 600;
-    color: hsl(210, 15%, 20%);
+    color: var(--texto-primario);
     margin-bottom: 0.75rem;
 }
 
@@ -441,7 +446,7 @@ body {
     gap: 0.5rem;
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid hsl(210, 40%, 96%);
+    border-bottom: 1px solid var(--borda-sutil);
 }
 
 .competencies-list li:last-child {
@@ -454,7 +459,7 @@ body {
     content: '';
     width: 0.5rem;
     height: 0.5rem;
-    background: hsl(40, 100%, 50%); /* Bolinha da lista (Amarelo) */
+    background: var(--cor-primaria);
     border-radius: 50%;
     margin-top: 0.375rem;
     flex-shrink: 0;
@@ -462,16 +467,16 @@ body {
 
 .competencies-list li {
     font-size: 0.875rem;
-    color: hsl(215, 16%, 47%);
+    color: var(--texto-secundario);
     line-height: 1.5;
 }
 
 /* Footer Styles */
 .footer {
-    background: hsl(40, 100%, 50%); /* Fundo do rodapé (Amarelo) */
-    color: hsl(210, 15%, 20%); /* Texto escuro no rodapé */
+    background: var(--cor-primaria);
+    color: var(--texto-sobre-escuro);
     margin-top: 4rem;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
 
 .footer-content {
@@ -489,10 +494,10 @@ body {
 }
 
 .footer-icon {
-    background: hsl(0, 0%, 98%); /* Fundo do ícone do rodapé */
-    color: hsl(40, 100%, 50%); /* Cor do ícone do rodapé (Amarelo) */
+    background: var(--texto-sobre-escuro);
+    color: var(--cor-primaria);
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    border-radius: var(--raio-borda);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -515,7 +520,6 @@ body {
     font-size: 0.875rem;
     opacity: 0.9;
     margin: 0;
-    color: hsl(210, 15%, 20%); /* Ajuste para o texto do rodapé */
 }
 
 .footer-right {
@@ -537,14 +541,14 @@ body {
 .footer-contact i {
     width: 1rem;
     height: 1rem;
-    color: hsl(210, 15%, 20%); /* Ícones no rodapé (Escuro) */
+    color: var(--texto-sobre-escuro);
 }
 
-/* NOVO: Estilo para ícones SVG personalizados no rodapé */
+/* NOVO: Estilo para ícones SVG personalizados no rodapé (se necessário) */
 .footer-contact .contact-svg-icon {
     width: 1rem;
     height: 1rem;
-    color: hsl(210, 15%, 20%); /* Cor escura para ícones SVG no rodapé */
+    color: var(--texto-sobre-escuro);
     flex-shrink: 0;
     margin-top: 0;
     fill: currentColor;
@@ -553,7 +557,7 @@ body {
 
 /* Ajuste específico para links de Mapa no rodapé */
 .footer-contact .map-link {
-    color: hsl(210, 15%, 20%); /* Texto do link no rodapé (Escuro) */
+    color: var(--texto-sobre-escuro);
     text-decoration: underline;
     display: flex;
     align-items: center;
@@ -562,19 +566,18 @@ body {
 
 /* Ajuste específico para links de WhatsApp no rodapé */
 .footer-contact .whatsapp-link {
-    color: hsl(210, 15%, 20%); /* Texto do link no rodapé (Escuro) */
+    color: var(--texto-sobre-escuro);
     text-decoration: underline;
 }
 
 .footer-contact .whatsapp-svg-icon {
     width: 1rem;
     height: 1rem;
-    /* Ícone do WhatsApp é colorido por si só */
 }
 
 /* Ajuste específico para links de Email no rodapé */
 .footer-contact .mail-link {
-    color: hsl(210, 15%, 20%); /* Texto do link no rodapé (Escuro) */
+    color: var(--texto-sobre-escuro);
     text-decoration: underline;
     display: flex;
     align-items: center;
@@ -611,7 +614,7 @@ body {
 
     .contact-item {
         flex-direction: row;
-        justify-content: center;
+        justify-content: center; /* Centraliza horizontalmente em desktop */
         gap: 0.5rem;
     }
 
@@ -639,35 +642,18 @@ body {
         height: 1.25rem;
     }
 
-    /* Map links in contact-item (header and cards) for larger screens */
-    .contact-item .map-link {
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .contact-item .map-link span {
-        word-break: normal;
-    }
-
-    /* Map links in footer for larger screens */
-    .footer-contact .map-link {
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    /* Email links in contact-item (header and cards) for larger screens */
-    .contact-item .mail-link {
-        flex-direction: row;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    /* Email links in footer for larger screens */
+    /* Links com ícones no cabeçalho e rodapé em telas maiores */
+    .contact-item .map-link,
+    .contact-item .mail-link,
+    .footer-contact .map-link,
     .footer-contact .mail-link {
         flex-direction: row;
         align-items: center;
         gap: 0.5rem;
+    }
+
+    .contact-item .map-link span {
+        word-break: normal;
     }
 
     /* Ajuste para alinhar ícones SVG personalizados em desktop */
@@ -739,10 +725,16 @@ html {
 }
 
 /* Focus States for Accessibility */
-button:focus,
+a:focus,
+button:focus {
+    outline: none; /* Remove o outline padrão para usar o :focus-visible */
+}
+
+a:focus-visible,
 button:focus-visible {
-    outline: 2px solid hsl(50, 100%, 50%);
+    outline: 3px solid var(--cor-destaque-alt);
     outline-offset: 2px;
+    border-radius: var(--raio-borda);
 }
 
 /* Animation for mobile menu (Still present but not functional due to nav removal) */
